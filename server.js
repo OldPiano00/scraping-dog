@@ -1,6 +1,32 @@
 const express = require("express");
 const puppeteer = require("puppeteer");
 
+const { exec } = require("child_process");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Auto-install Chromium if missing
+async function ensureChromiumInstalled() {
+  try {
+    require("fs").accessSync("/opt/render/.cache/puppeteer/chrome");
+  } catch (err) {
+    console.log("Installing Chromium...");
+    exec("npx puppeteer browsers install chrome", (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error installing Chromium: ${error.message}`);
+      } else {
+        console.log("Chromium installed.");
+      }
+    });
+  }
+}
+
+ensureChromiumInstalled();
+
+const express = require("express");
+const puppeteer = require("puppeteer");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
