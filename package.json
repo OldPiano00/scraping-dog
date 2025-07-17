@@ -1,27 +1,14 @@
 {
   "name": "scraping-dog",
   "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
     "start": "node server.js",
     "postinstall": "npx puppeteer browsers install chrome"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OldPiano00/scraping-dog.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/OldPiano00/scraping-dog/issues"
-  },
-  "homepage": "https://github.com/OldPiano00/scraping-dog#readme",
-  "description": "",
   "dependencies": {
-    "express": "^5.1.0",
-    "puppeteer": "^24.14.0"
+    "express": "^4.18.2",
+    "puppeteer": "^21.3.8"
   }
 }
